@@ -79,5 +79,11 @@ watch 有一個返回值，可以用來停止監視行為
 > 如果修改的是`ref`定義的對象中的屬性，則`newValue`跟`oldValue`是一樣的
 > 如果修改的`ref`定義的對象，`newValue`為新值，`oldValue`為舊值，因為兩者不再是同一對象
 
+![alt text](image-1.png)
 
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+*** 直接用 情況四：監視響應式對象中的某個屬性，且該屬性是[基本類型]，需要寫成函數式
 -------

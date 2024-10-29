@@ -1,5 +1,7 @@
 <template>
-    <Watch></Watch>
+    <WatchEffect></WatchEffect>
+    <!-- <Watch_04></Watch_04> -->
+    <!-- <Watch></Watch> -->
     <!-- <Computed></Computed> -->
 
     <!-- <br/>
@@ -13,6 +15,8 @@
     import Person02 from "./components/Person02..vue";
     import Computed from "./components/Computed.vue";
     import Watch from "./components/Watch.vue";
+    import Watch_04 from "./components/Watch_04.vue";
+    import WatchEffect from "./components/WatchEffect.vue";
 
     export default {
         name:"App",
@@ -20,7 +24,9 @@
             Person,
             Person02,
             Computed,
-            Watch
+            Watch,
+            Watch_04,
+            WatchEffect
         }
     }
 </script>
