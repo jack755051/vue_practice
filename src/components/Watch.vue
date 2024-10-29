@@ -1,10 +1,22 @@
 <template>
     <div class="watch">
-        <h2>情況一，監視[ref]</h2>
+        <h2>情況一，監視[ref]定義的[基本類型]數據</h2>
         <h2>當前求和為：{{ sum }}</h2>
         <button @click="changeSum">點我sum+1</button>
     </div>
     <br/>
+    <div class="watch">
+        <h2>情況二，監視[ref]定義的[對象類型]數據</h2>        
+        <h2>姓名：{{ person.name }}</h2>
+        <h2>年齡：{{ person.age }}</h2>
+        <button 
+        v-for="(btn, index) in watch_02_btn"
+        :key="index"
+        @click="changePerson(btn.en)"
+        >
+        更改{{ btn.ch }}
+        </button>
+    </div>
 </template>
 
 <script lang="ts">
@@ -15,18 +27,52 @@ export default {
 
 <script lang="ts" setup>
     import { ref ,watch} from 'vue';
+
+    let watch_02_btn:{ch:string,en:string}[] = [
+        {ch:'姓名',en:'name'},
+        {ch:'年齡',en:'age'},
+    ];
+    let watch_02_bool = false
+
+    // 情況一，監視[ref]定義的[基本類型]數據
     let sum = ref(0);
 
     function changeSum(){
         sum.value += 1;
     }
     // 監視sum的變化
-    const stopWatch = watch(sum,(newVal,oldValue)=>{
-        console.warn('sum發生變化了',newVal,oldValue);
-        if(newVal >= 9){
-            stopWatch();
+    // const stopWatch = watch(sum,(newVal,oldValue)=>{
+    //     console.warn('sum發生變化了',newVal,oldValue);
+    //     if(newVal >= 9){
+    //         stopWatch();
+    //     }
+    // })
+
+    // 情況二，監視[ref]定義的[對象類型]數據
+
+    let person = ref({
+        name:'張三',
+        age: 25
+    });
+
+    // 暫存初始值
+    let previousName = person.value.name;
+
+    watch(person,(newValue,oldValue)=>{
+        console.warn('person發生變化了',newValue.name,oldValue.name);
+    },{ deep: true })
+
+    function changePerson(type: string){
+        //先改變布爾值
+        watch_02_bool = !watch_02_bool;
+
+        if(type === 'name'){
+            console.warn('更改_name',watch_02_bool);
+            person.value.name = watch_02_bool ? '李四' : previousName;
+        }else if(type === 'age'){
+            person.value.age +=1;
         }
-    })
+    }
 
 </script>
 
