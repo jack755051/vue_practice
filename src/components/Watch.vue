@@ -17,6 +17,15 @@
         更改{{ btn.ch }}
         </button>
     </div>
+    <br/>
+    <div class="watch">
+        <h2>情況三，監視[reactive]定義的[對象類型]數據，且默認開啟深度監視</h2>        
+        <h2>姓名：{{ person_watch_03.name }}</h2>
+        <h2>年齡：{{ person_watch_03.age }}</h2>
+        <button @click="changeName_watch_03">更改姓名</button>
+        <button @click="changeAge_watch_03">更改年齡</button>
+        <button @click="change_watch_03">更改全部</button>
+    </div>
 </template>
 
 <script lang="ts">
@@ -26,7 +35,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-    import { ref ,watch} from 'vue';
+    import { ref ,reactive, watch } from 'vue';
 
     let watch_02_btn:{ch:string,en:string}[] = [
         {ch:'姓名',en:'name'},
@@ -58,9 +67,9 @@ export default {
     // 暫存初始值
     let previousName = person.value.name;
 
-    watch(person,(newValue,oldValue)=>{
-        console.warn('person發生變化了',newValue.name,oldValue.name);
-    },{ deep: true })
+    // watch(person,(newValue,oldValue)=>{
+    //     console.warn('person發生變化了',newValue.name,oldValue.name);
+    // },{ deep: true })
 
     function changePerson(type: string){
         //先改變布爾值
@@ -73,6 +82,33 @@ export default {
             person.value.age +=1;
         }
     }
+
+    // 情況三，監視[reactive]定義的[對象類型]數據，且默認開啟深度監視
+
+    let person_watch_03 = reactive({
+        name:'王五',
+        age: 30
+    });
+
+    function changeName_watch_03(){
+        person_watch_03.name += '~';
+    }
+
+    function changeAge_watch_03(){
+        person_watch_03.age += 1;
+    }
+
+    function change_watch_03(){
+        Object.assign(person_watch_03,{
+            name:'李六',
+            age: 42
+        })
+    }
+
+    watch(person_watch_03,(newValue,oldValue)=>{
+        console.warn('person_watch_03發生變化了');
+        console.warn('新值',newValue,oldValue);
+    })
 
 </script>
 
