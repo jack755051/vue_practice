@@ -1,6 +1,6 @@
 ### 20241029 DevLog:
 
-1. set`與`get` 方法
+1. `set`與`get`方法
 
 - 重點摘要
 > 箭頭函數語法不支援 get 和 set 方法的定義。
@@ -52,4 +52,27 @@
 3. get 方法的自動執行：
     - 當 firstName 和 lastName 變更後，Vue 的響應式系統會自動偵測到這些依賴已變化，因此會再次執行 get 方法來獲取最新的 fullName 值。
     - get 方法會合併新的 firstName 和 lastName 值，並將最新結果返回給 fullName。
+  
+-------
+
+2. watch
+
+ - 作用：監視數據變化
+ - 特點：
+    > `ref` 定義的數據
+    > `reactive`定義的數據
+    > 函數返回一個值
+    > 一個包含上述內容的數組
+
+watch 有一個返回值，可以用來停止監視行為
+```javascript
+
+    const stopWatch = watch(sum,(newVal,oldValue)=>{
+        console.warn('sum發生變化了',newVal,oldValue);
+        if(newVal >= 9){
+            stopWatch();
+        }
+    })
+```
+
 -------
