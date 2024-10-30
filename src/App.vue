@@ -1,7 +1,10 @@
 <template>
 
-    <TypescriptReview></TypescriptReview>
-    
+    <Parents>
+    </Parents>
+
+    <!-- <TypescriptReview></TypescriptReview> -->
+
     <!-- ------ -->
 
     <!-- <TagRef ref="test"></TagRef>
@@ -32,7 +35,8 @@ export default {
         Watch_04,
         WatchEffect,
         TagRef,
-        TypescriptReview
+        TypescriptReview,
+        Parents,
     }
     }
 </script>
@@ -46,6 +50,7 @@ export default {
     import WatchEffect from "./components/WatchEffect.vue";
     import TagRef from "./components/TagRef.vue";
     import TypescriptReview from "./components/Typescript.vue";
+    import Parents from "./components/Parents.vue";
 
 
     import { ref } from "vue";
