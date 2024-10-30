@@ -92,6 +92,8 @@ watch 有一個返回值，可以用來停止監視行為
 
 1. 生命週期:
 
+> in vue2
+
 |階段|方法|
 |----|---|
 |創建|創建前(beforeCreate) / 創建後(createed)
@@ -99,12 +101,12 @@ watch 有一個返回值，可以用來停止監視行為
 |更新|更新前(beforeUpdate) / 更新後(updateed)
 |銷毀|銷毀前(beforeDestroy) / 銷毀後(destroyed)
 
-> in vue2
+> in vue3
 
-
+> 父子掛載工作，完成順序為先子後父
 ---
 
-2. v-show
+1. v-show
 
 獨立於`v-if`外的使用方法，可減少DOM操作
 

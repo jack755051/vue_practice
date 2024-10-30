@@ -1,7 +1,7 @@
 <template>
 
-    <Parents>
-    </Parents>
+    <CustomHook></CustomHook>
+    <!-- <Parents></Parents> -->
 
     <!-- <TypescriptReview></TypescriptReview> -->
 
@@ -37,7 +37,8 @@ export default {
         TagRef,
         TypescriptReview,
         Parents,
-        LifeCycle
+        LifeCycle,
+        CustomHook
     }
     }
 </script>
@@ -53,6 +54,7 @@ export default {
     import TypescriptReview from "./components/Typescript.vue";
     import Parents from "./components/Parents.vue";
     import LifeCycle from "./components/LifeCycle.vue";
+    import CustomHook from "./components/CustomHook.vue";
 
 
     import { ref } from "vue";
