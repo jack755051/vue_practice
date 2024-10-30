@@ -1,5 +1,8 @@
 <template>
-    <WatchEffect></WatchEffect>
+    <TagRef ref="test"></TagRef>
+    <br/>
+    <button @click="testDefineExpose">測試組建暴露</button>
+    <!-- <WatchEffect></WatchEffect> -->
     <!-- <Watch_04></Watch_04> -->
     <!-- <Watch></Watch> -->
     <!-- <Computed></Computed> -->
@@ -11,24 +14,37 @@
 </template>
 
 <script lang="ts">
+export default {
+    name:"App",
+    components:{
+        Person,
+        Person02,
+        Computed,
+        Watch,
+        Watch_04,
+        WatchEffect,
+        TagRef
+    }
+    }
+</script>
+
+<script lang="ts" setup>
     import Person from "./components/Person.vue"
     import Person02 from "./components/Person02..vue";
     import Computed from "./components/Computed.vue";
     import Watch from "./components/Watch.vue";
     import Watch_04 from "./components/Watch_04.vue";
     import WatchEffect from "./components/WatchEffect.vue";
+    import TagRef from "./components/TagRef.vue";
 
-    export default {
-        name:"App",
-        components:{
-            Person,
-            Person02,
-            Computed,
-            Watch,
-            Watch_04,
-            WatchEffect
-        }
+    import { ref } from "vue";
+
+    let test = ref();
+
+    function testDefineExpose() {
+        console.log(test.value);
     }
+
 </script>
 
 <style>
