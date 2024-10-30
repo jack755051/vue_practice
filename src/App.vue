@@ -37,6 +37,7 @@ export default {
         TagRef,
         TypescriptReview,
         Parents,
+        LifeCycle
     }
     }
 </script>
@@ -51,6 +52,7 @@ export default {
     import TagRef from "./components/TagRef.vue";
     import TypescriptReview from "./components/Typescript.vue";
     import Parents from "./components/Parents.vue";
+    import LifeCycle from "./components/LifeCycle.vue";
 
 
     import { ref } from "vue";
