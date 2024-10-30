@@ -14,11 +14,20 @@ export default {
 </script>
 
 <script lang="ts" setup>
-    import { defineProps } from 'vue';
-import { PersonInit } from '../Types';
+import { defineProps } from 'vue';
+import type { PersonInit } from '../Types';
 
-    const props = defineProps<{ dataList: Array<PersonInit> }>();
-    let x = props.dataList;
+withDefaults(
+    defineProps<{ dataList?: PersonInit[] }>(), {
+        dataList:()=> [
+            {
+                id: '11eeffe',
+                name: 'Dick',
+                age: 40
+            }
+        ] as PersonInit[]
+    }
+)
 
 </script>
 
