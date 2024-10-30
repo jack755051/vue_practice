@@ -1,7 +1,15 @@
 <template>
-    <TagRef ref="test"></TagRef>
+
+    <TypescriptReview></TypescriptReview>
+    
+    <!-- ------ -->
+
+    <!-- <TagRef ref="test"></TagRef>
     <br/>
-    <button @click="testDefineExpose">測試組建暴露</button>
+    <button @click="testDefineExpose">測試組建暴露</button> -->
+
+    <!-- ------ -->
+
     <!-- <WatchEffect></WatchEffect> -->
     <!-- <Watch_04></Watch_04> -->
     <!-- <Watch></Watch> -->
@@ -23,7 +31,8 @@ export default {
         Watch,
         Watch_04,
         WatchEffect,
-        TagRef
+        TagRef,
+        TypescriptReview
     }
     }
 </script>
@@ -36,6 +45,8 @@ export default {
     import Watch_04 from "./components/Watch_04.vue";
     import WatchEffect from "./components/WatchEffect.vue";
     import TagRef from "./components/TagRef.vue";
+    import TypescriptReview from "./components/Typescript.vue";
+
 
     import { ref } from "vue";
 
