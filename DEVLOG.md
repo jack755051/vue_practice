@@ -125,4 +125,6 @@ watch 有一個返回值，可以用來停止監視行為
 
 ### 20241031 DevLog:
 
-新增 `record/devlog` 為獨立分支
+1. 新增 `record/devlog` 為獨立分支
+
+2. 路由組建通常在`vue` 專案當中是在放`pages`、`views` 文件夾當中，一班組建是放在`components`文件夾當中
