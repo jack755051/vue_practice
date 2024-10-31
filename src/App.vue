@@ -3,15 +3,15 @@
         <Header></Header>
         <div class="btnBox">
 
-            <router-link to="/" custom v-slot="{ navigate }">
+            <router-link :to="{ path:'/' }" custom v-slot="{ navigate }">
                 <button @click="navigate">首頁</button>
             </router-link>
 
-            <router-link to="/about" custom v-slot="{ navigate }">
+            <router-link :to="{ path:'/about' }" custom v-slot="{ navigate }">
                 <button @click="navigate">關於</button>
             </router-link>
 
-            <router-link to="/news" custom v-slot="{ navigate }">
+            <router-link :to="{path:'/news'}" custom v-slot="{ navigate }">
                 <button @click="navigate">新聞</button>
             </router-link>
 
