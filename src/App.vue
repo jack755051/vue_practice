@@ -1,5 +1,6 @@
 <template>
     <div class="app">
+        <Header></Header>
         <div class="btnBox">
 
             <router-link to="/" custom v-slot="{ navigate }">
@@ -21,9 +22,15 @@
 </template>
 
 <script lang="ts">
-    import {RouterView} from "vue-router"
+    import { RouterView } from "vue-router";
+    import  Header  from "./components/Header.vue";
+    
     export default {
         name:"App",
+        components: {
+            RouterView,
+            Header
+        }
     }
 </script>
 
