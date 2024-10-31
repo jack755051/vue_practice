@@ -20,5 +20,7 @@ export default {
         box-shadow: 0 0 10px;
         border-radius: 10px;
         padding: 20px;
+        height: 50vh;
+        width: 80vw;
     }
 </style>

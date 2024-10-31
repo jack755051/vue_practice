@@ -41,9 +41,11 @@
         background-color: aquamarine;
         display: flex;
         flex-direction: column;
+        align-items: center
     }
 
     .btnBox{
+        width: inherit;
         margin: 40px 0 7.5vh 0 ;
         display: flex;
         justify-content: space-around;
