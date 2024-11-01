@@ -22,7 +22,10 @@
 </template>
 
 <script lang="ts">
+    // import third party libraries
     import { RouterView } from "vue-router";
+    
+    // from my components
     import  Header  from "./components/Header.vue";
     
     export default {
@@ -32,6 +35,7 @@
             Header
         }
     }
+
 </script>
 
 <style>
