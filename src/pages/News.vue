@@ -6,15 +6,27 @@
                 v-for="(n,index) in artcles"
                 :key=index
                 >
-                <RouterLink :to="{  
-                    path:'/news/detail',
-                    query: {
+                <RouterLink :to="{
+
+                    /** query方法 */ 
+
+                    // path:'/news/detail',
+                    // query: {
+                    //     id:n.id,
+                    //     newsTitle:n.newsTitle,
+                    //     // newsContent:truncateContent(n.newsContent || ''),
+                    //     newsContent:n.newsContent,
+                    //     publishDate:n.publishDate?.toString(),
+                    // }
+
+                    name:'DETAIL',
+                    params: {
                         id:n.id,
                         newsTitle:n.newsTitle,
-                        // newsContent:truncateContent(n.newsContent || ''),
-                        newsContent:n.newsContent,
+                        newsContent:encodeURIComponent(n.newsContent || 'No content available'),
                         publishDate:n.publishDate?.toString(),
                     }
+
                     }">{{ n.newsTitle }}</RouterLink>
                 </li>
             </ul>

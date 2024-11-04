@@ -9,22 +9,23 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes:[
         {
-            name:'首頁',
+            name:'HOMEPAGE',
             path: '/',
             component: Home,
         },
         {
-            name:'關於',
+            name:'ABOUT',
             path: '/about',
             component: About,
         },
         {
-            name:'新聞',
+            name:'NEWS',
             path: '/news',
             component: News,
             children:[
                 {
-                    path:'detail',
+                    name:'DETAIL',
+                    path:'detail/:id/:newsTitle/:newsContent/:publishDate',
                     component:Detail
                 }
             ]
