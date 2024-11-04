@@ -5,18 +5,29 @@
                 <li 
                 v-for="(n,index) in artcles"
                 :key=index
-                >{{ n.newsTitle }}</li>
+                >
+                <RouterLink :to="{  
+                    path:'/news/detail',
+                    query: {
+                        id:n.id,
+                        newsTitle:n.newsTitle,
+                        // newsContent:truncateContent(n.newsContent || ''),
+                        newsContent:n.newsContent,
+                        publishDate:n.publishDate?.toString(),
+                    }
+                    }">{{ n.newsTitle }}</RouterLink>
+                </li>
             </ul>
         </div>
-
+        <div class="news-content">
+            <RouterView></RouterView>
+        </div>
     </div>
 
     
 </template>
 
 <script lang="ts">
-import Detail from './Detail.vue'
-
 export default {
     name:"News",
 }
@@ -24,7 +35,9 @@ export default {
 
 <script lang="ts" setup>
     import {ref,reactive, computed, onBeforeMount} from 'vue';
-    import {article, newsItem} from '../types/interface';
+    import { RouterView } from "vue-router";
+    import { article, newsItem} from '../types/interface';
+
     import utils from '../utils/utils'
 
     let newsAmounts:number = 6
@@ -81,6 +94,17 @@ export default {
             });
         }
         return articles;
+    };
+
+
+    // 截斷內容並移除 `][` 符號
+    function truncateContent(content: string): string {
+        const maxLength = 100; // 設定最大長度
+        let truncated = content.replace(/\]\[/g, ''); // 移除 `][` 符號
+        if (truncated.length > maxLength) {
+            truncated = truncated.substring(0, maxLength) + '...'; // 截斷並加上刪節號
+        }
+        return truncated;
     }
 
 </script>
@@ -90,8 +114,40 @@ export default {
         background-color: #ddd;
         box-shadow: 0 0 10px;
         border-radius: 10px;
-        padding: 20px;
         height: 50vh;
         width: 80vw;
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 50px;
     }
-</style>
+
+    .news .newsList{
+        width: 20vw;
+        height: 100%;
+    }
+
+    .news .newsList ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around; /* 修改這行以平均分布 */
+        align-items: center;
+        justify-content: flex-start;
+        height: 100%; /* 確保 ul 佔滿父容器的高度 */
+    }
+
+    .news .newsList li{
+        list-style: none;
+        margin: 0 0 20px 0;
+    }
+
+    .news .newsList li a{
+        text-decoration: none; 
+        color: blue;
+    }
+
+    .news-content{
+        width: 70%;
+        height: 100%;
+    }</style>
