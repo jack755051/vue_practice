@@ -45,3 +45,24 @@
     b. `hash`模式：
       - 優點：兼容性強，不需要服務器處理路徑，通常用於後台
       - 缺點：SEO效能不佳
+
+4. 傳遞參數方法
+   a. params 方法：
+      - 特點：
+        - 在標籤`RouterLink`當中需要用`name`，因此要在路由器當中設定`name`。
+         ```javascript=
+               name:'DETAIL',
+               params: {
+                  id:n.id,
+                  newsTitle:n.newsTitle,
+                  newsContent:encodeURIComponent(n.newsContent || 'No content available'),
+                  publishDate:n.publishDate?.toString(),
+               }
+         ```
+        - 透過路由器的`path`來傳遞參數，
+         ```javascript=
+         path:'detail/:id/:newsTitle/:newsContent/:publishDate',
+         // 其中的 :id/:newsTitle/:newsContent/:publishDate 都是要傳遞的參數，利用`:`符號標記，並用`/`符號分格
+         ```
+
+        -遇到特殊符號需要透過`encodeURIComponent`方法包裝，並於子層利用`decodeURIComponent`解碼
